@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DaydreamDesk</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+  <h1>DaydreamDesk</h1>
+  <nav>
+    <button onclick="showTab('home')">Home</button>
+    <button onclick="showTab('planner')">Planner</button>
+    <button onclick="showTab('sounds')">Sounds</button>
+    <button onclick="showTab('about')">About</button>
+    <button onclick="toggleNight()">🌙</button>
+  </nav>
+</header>
+
+
+<!-- HOME -->
+<section id="home" class="tab home">
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
+  <div class="weather" id="weather"></div>
+
+  <div class="tomato-timer">
+    <div class="leaf"></div>
+    <h2 id="timer">25:00</h2>
+  </div>
+
+  <button class="action-btn" onclick="startTimer(); activateButton(this)">
+    Start
+  </button>
+  
+  <button class="action-btn" onclick="pauseTimer(); activateButton(this)">
+    Pause
+  </button>
+  
+  <button class="action-btn" onclick="resetTimer(); activateButton(this)">
+    Reset
+  </button>
+  
+  
+
+  <p id="mantra"></p>
+</section>
+
+<!-- PLANNER -->
+<section id="planner" class="tab">
+  <h2>My Planner</h2>
+
+  <div class="planner-container">
+
+    <!-- TO DO LIST -->
+    <div class="todo">
+      <h3>To-Do List</h3>
+
+      <div id="todoList"></div>
+
+      <input id="newTask" placeholder="New task..." />
+      <button onclick="addTask()">Add</button>
+    </div>
+
+    <!-- STICKY NOTES -->
+    <div class="sticky">
+      <h3>Sticky Notes</h3>
+
+      <textarea
+        id="stickyNote"
+        placeholder="Write reminders, thoughts, or motivation here..."
+        onblur="saveStickyNote()"
+      ></textarea>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- SOUNDS -->
+<section id="sounds" class="tab">
+  <h2>Relaxing Sounds</h2>
+
+  <div class="soundboard">
+    <button onclick="playSound('rain')">🌧 Rain</button>
+    <button onclick="playSound('waves')">🌊 Waves</button>
+    <button onclick="playSound('wind')">🍃 Wind</button>
+    <button onclick="stopSound()">⏹ Stop</button>
+  </div>
+</section>
+
+
+<section id="about" class="tab">
+  <h2>About DaydreamDesk</h2>
+
+  <p>
+    DaydreamDesk is a cozy productivity web application designed to help users
+    manage time gently and intentionally. Inspired by calm digital spaces like
+    Momentum, it blends focus tools with relaxing visuals.
+  </p>
+
+  <h3>How to Use</h3>
+  <ul>
+    <li>Start the tomato-shaped Pomodoro timer to focus</li>
+    <li>Check the weather and forecast to plan your day</li>
+    <li>Write tasks and notes in the planner tab</li>
+    <li>Play calming ambient sounds</li>
+    <li>Toggle night mode for evening focus</li>
+  </ul>
+</section>
+
+
+<script src="script.js"></script>
+
+<footer>
+  <p>© 2025 Areeba Rehman — DaydreamDesk</p>
+</footer>
+
+</body>
+</html>

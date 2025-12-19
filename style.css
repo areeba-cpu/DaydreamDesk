@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(#fdeff9, #ecf4ff);
+  color: #444;
+  transition: 0.5s;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(255, 226, 246, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  position: relative;
+}
+
+nav button {
+  margin-left: 8px;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* TABS */
+.tab {
+  display: none;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CLOUDS */
+.cloud {
+  position: absolute;
+  top: 20%;
+  width: 180px;
+  height: 60px;
+  background: rgb(187, 187, 187);
+  border-radius: 50px;
+  opacity: 0.5;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgb(202, 202, 202);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: -40px;
+}
+
+.cloud::before {
+  left: 20px;
+}
+
+.cloud::after {
+  left: 80px;
+}
+
+.cloud1 {
+  left: -200px;
+  animation: floatCloud 60s linear infinite;
+}
+
+.cloud2 {
+  top: 35%;
+  left: -300px;
+  animation: floatCloud 90s linear infinite;
+}
+
+.cloud3 {
+  top: 50%;
+  left: -250px;
+  animation: floatCloud 75s linear infinite;
+}
+
+@keyframes floatCloud {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(140vw);
+  }
+}
+
+/* WEATHER */
+.weather {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* TOMATO TIMER */
+.tomato-timer {
+  width: 220px;
+  height: 200px;
+  background: #ff6f9a;
+  border-radius: 50% 50% 45% 45%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 2;
+}
+
+.tomato-timer h2 {
+  font-size: 3rem;
+}
+
+.leaf {
+  position: absolute;
+  top: -18px;
+  width: 40px;
+  height: 20px;
+  background: #6dbf6d;
+  border-radius: 50%;
+}
+.action-btn {
+  background: #f6f1f5;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.action-btn.active {
+  background: #f7b6cf;
+  color: white;
+}
+
+/* CONTROLS */
+.controls button {
+  margin: 10px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* MANTRA */
+#mantra {
+  margin-top: 20px;
+  font-style: italic;
+  color: #777;
+}
+/* SOUNDS BUTTON */
+.soundboard button {
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 16px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* PLANNER */
+.planner-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.todo, .sticky {
+  background: rgba(255,255,255,0.85);
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+}
+
+.todo input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-item input {
+  margin-right: 8px;
+}
+
+.sticky textarea {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  border: none;
+  padding: 10px;
+  background: #ffc9e7;
+}
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.todo-item input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.todo-item span {
+  font-size: 1rem;
+  color: #444;
+}
+
+.todo-item button {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.todo-item.completed {
+  background: #f6f0f5;
+}
+
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+
+
+/* NIGHT MODE */
+body.night {
+  background: linear-gradient(#1e1e2f, #2b2b45);
+  color: #eee;
+}
+
+body.night header {
+  background: rgba(40,40,70,0.8);
+}
+
+body.night .cloud {
+  opacity: 0.15;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
