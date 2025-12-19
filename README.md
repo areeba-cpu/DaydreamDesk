@@ -15,6 +15,17 @@ soft visuals, and mindful interaction.
 - Animated cloud visuals
 - Responsive desktop web layout
 
+## Target Users
+- College students
+- Creatives
+- Remote workers
+- Anyone who struggles with focus in high-pressure productivity tools
+
+## Target Browsers
+- Chrome (Desktop)
+- Firefox (Desktop)
+- Safari (Desktop)
+
 ## Technologies Used
 - HTML & CSS (layout and styling)
 - JavaScript (application logic)
@@ -31,13 +42,32 @@ soft visuals, and mindful interaction.
 - Stores planner notes
 - Acts as backend database and API layer
 
-## How to Run Locally
-1. Clone or download the repository
-2. Open the project folder in VS Code
-3. Use Live Server to launch `index.html`
-4. Ensure sound files are stored in `/sounds`
+
+## Installation
+1. Clone the repository
+2. Run `npm install`
+3. Create a `.env` file with Supabase keys
+4. Run `npm run dev`
+
+## Running the Server
+- Node.js backend using Express
+- Front-end served via Vercel
+
+## API Endpoints
+GET /api/todos – Retrieves saved planner items  
+POST /api/todos – Saves updated planner items  
+
+## Known Bugs
+- Mobile layout not fully optimized
+- Limited planner filtering
+
+## Future Roadmap
+- User accounts
+- Productivity analytics
+- Sound layering
+- Mobile optimization
 
 ## Author
-Your Name  
+Areeba Rehman  
 © 2025 DaydreamDesk
 
