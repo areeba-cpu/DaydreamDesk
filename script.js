@@ -100,13 +100,10 @@ function toggleNight() {
   document.body.classList.toggle("night");
 }
 
-
-
-l/* =====================
-   TO-DO LIST (via Node.js API)
-   ===================== */
-
-let todos = [];
+/* =====================
+   TO-DO LIST (LocalStorage)
+===================== */
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 function renderTodos() {
   const list = document.getElementById("todoList");
@@ -115,32 +112,18 @@ function renderTodos() {
   todos.forEach((task, index) => {
     const div = document.createElement("div");
     div.className = "todo-item";
-    if (task.done) div.classList.add("completed");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = task.done;
+    div.innerHTML = `
+      <input type="checkbox" ${task.done ? "checked" : ""}>
+      <span>${task.text}</span>
+      <button onclick="deleteTask(${index})">✕</button>
+    `;
 
-    checkbox.addEventListener("change", () => {
-      todos[index].done = checkbox.checked;
+    div.querySelector("input").addEventListener("change", () => {
+      todos[index].done = !todos[index].done;
       saveTodos();
-      renderTodos();
     });
 
-    const text = document.createElement("span");
-    text.textContent = task.text;
-
-    const btn = document.createElement("button");
-    btn.textContent = "✕";
-    btn.onclick = () => {
-      todos.splice(index, 1);
-      saveTodos();
-      renderTodos();
-    };
-
-    div.appendChild(checkbox);
-    div.appendChild(text);
-    div.appendChild(btn);
     list.appendChild(div);
   });
 }
@@ -155,27 +138,15 @@ function addTask() {
   renderTodos();
 }
 
+function deleteTask(index) {
+  todos.splice(index, 1);
+  saveTodos();
+  renderTodos();
+}
+
 function saveTodos() {
-  fetch("/api", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id: 1,
-      items: todos
-    })
-  });
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
-
-function loadTodos() {
-  fetch("/api")
-    .then(res => res.json())
-    .then(data => {
-      todos = data[0]?.items || [];
-      renderTodos();
-    });
-}
-
-
 
 /* =====================
    SOUNDBOARD (Local MP3s)
@@ -207,12 +178,6 @@ function stopSound() {
     currentSound = null;
   }
 }
-function activateButton(button) {
-  document.querySelectorAll(".action-btn").forEach(btn => {
-    btn.classList.remove("active");
-  });
-  button.classList.add("active");
-}
 
 /* =====================
    INIT
@@ -220,7 +185,8 @@ function activateButton(button) {
 document.addEventListener("DOMContentLoaded", () => {
   updateTimer();
   showMantra();
-  loadTodos();
+  renderTodos();
   showTab("home");
 });
+
 
