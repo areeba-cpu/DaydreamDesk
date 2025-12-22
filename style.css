@@ -130,7 +130,7 @@ nav button {
   border-radius: 50%;
 }
 .action-btn {
-  background: #f6f1f5;
+  background: #fffdff;
   border: none;
   border-radius: 20px;
   padding: 10px 18px;
@@ -240,7 +240,7 @@ nav button {
 
 
 .todo-item.completed {
-  background: #fff4fd;
+  background: #f6f0f5;
 }
 
 
@@ -254,7 +254,7 @@ nav button {
 /* NIGHT MODE */
 body.night {
   background: linear-gradient(#1e1e2f, #2b2b45);
-  color: #ff9fe6;
+  color: #ff4dcf;
 }
 
 body.night header {
@@ -265,10 +265,54 @@ body.night .cloud {
   opacity: 0.15;
 }
 
+button {
+  background: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* When button is clicked */
+button:active {
+  background: #f0a1c3;
+  transform: scale(0.97);
+}
+
+/* Optional hover */
+button:hover {
+  background: #ff9dc8;
+}
+
+.nav button {
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+/* Hover */
+.nav button:hover {
+  background: #ffeaf3;
+}
+
+/* ACTIVE TAB */
+.nav button.active {
+  background: #ffd6e8;
+  font-weight: 600;
+}
+
+
 footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
   color: #777;
 }
+
 
