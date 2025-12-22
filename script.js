@@ -87,10 +87,22 @@ fetch(
    TABS
 ===================== */
 function showTab(id) {
+  // hide all tabs
   document.querySelectorAll(".tab").forEach(tab => {
     tab.style.display = "none";
   });
+
+  // show selected tab
   document.getElementById(id).style.display = "block";
+
+  // reset nav buttons
+  document.querySelectorAll(".nav button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  // activate clicked tab
+  const activeBtn = document.querySelector(`[onclick="showTab('${id}')"]`);
+  if (activeBtn) activeBtn.classList.add("active");
 }
 
 /* =====================
